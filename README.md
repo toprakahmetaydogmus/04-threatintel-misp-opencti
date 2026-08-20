@@ -1,40 +1,28 @@
-# Cyber Threat Intelligence STIX 2.1 Pipeline
+# 🔍 Cyber Threat Intelligence STIX 2.1 Pipeline
 
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/toprakahmetaydogmus/04-threatintel-misp-opencti?color=blue&label=Release)](https://github.com/toprakahmetaydogmus/04-threatintel-misp-opencti/releases)
-[![Monorepo](https://img.shields.io/badge/Monorepo-cybersecurity--ecosystem-orange.svg)](https://github.com/toprakahmetaydogmus/cybersecurity-ecosystem)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![CI Quality Gate](https://github.com/toprakahmetaydogmus/04-threatintel-misp-opencti/actions/workflows/ci.yml/badge.svg)](https://github.com/toprakahmetaydogmus/04-threatintel-misp-opencti/actions)
-[![STIX 2.1](https://img.shields.io/badge/Standard-STIX%202.1%20%7C%20TAXII-blue.svg)](#)
+[![STIX 2.1](https://img.shields.io/badge/Standard-STIX%202.1-blue.svg)](https://oasis-open.github.io/cti-documentation/)
 
-Geliştirici: **Toprak Ahmet Aydoğmuş**
-
-OpenCTI ve MISP platformları arasında STIX 2.1 formatında otomatik IOC ayrıştırma, güvenilirlik puanlama ve dinamik firewall IP bloklama listesi (EDR feed) üreten CTI boru hattı.
+Developer: **Toprak Ahmet Aydoğmuş**
 
 ---
 
-## 🏗️ Veri Akış Mimarisi
-
-```mermaid
-graph LR
-    MISP[MISP / OpenCTI Feeds] --> Ingestion[threat_intel_pipeline.py]
-    Ingestion --> Normalizer[STIX 2.1 JSON Schema Normalizer]
-    Normalizer --> Deduplicator[IOC Deduplication & Score Engine]
-    Deduplicator --> STIXBundle[STIX 2.1 Bundle Object]
-    STIXBundle --> EDRFeed[Firewall / EDR Blocklist: IP, Domain, SHA256]
-```
+## 🎯 1. Overview
+Automated CTI aggregation, STIX 2.1 bundle normalization, IoC scoring (IP, Domain, URL, File Hash), and MITRE ATT&CK adversary profiling engine compatible with MISP and OpenCTI feed standards.
 
 ---
 
-## ⚡ Hızlı Başlangıç
+## 🚀 2. Quick Start
 
 ```bash
 git clone https://github.com/toprakahmetaydogmus/04-threatintel-misp-opencti.git
 cd 04-threatintel-misp-opencti
-
-python scripts/threat_intel_pipeline.py
+python -m unittest discover tests/
 ```
 
 ---
 
-## 📜 Lisans
-MIT License - **Toprak Ahmet Aydoğmuş**
+## 📜 3. License
+Licensed under the [MIT License](LICENSE).  
+Developer: **Toprak Ahmet Aydoğmuş**.
